@@ -18,7 +18,7 @@ import asyncio
 import contextlib
 from typing import Generator, Callable, TypeVar, Any, cast
 
-import aiocometd.exceptions as cometd_exc
+import aiocometd-noloop.exceptions as cometd_exc
 
 
 FuncType = Callable[..., Any]
@@ -102,15 +102,15 @@ EXCEPTION_PAIRS = {
 
 @contextlib.contextmanager
 def translate_errors_context() -> Generator[None, None, None]:
-    """Context manager for translating the raised aiocometd \
+    """Context manager for translating the raised aiocometd-noloop \
     errors to their aiosfstream counterparts
 
     As every properly behaving library, aiosfstream uses its own exception
-    hierarchy, just as aiocometd does. The problem is that for the users of
+    hierarchy, just as aiocometd-noloop does. The problem is that for the users of
     the library, it can be very confusing to deal with more then a single
-    exception hierarchy, so aiocometd exceptions should be tranlated to
+    exception hierarchy, so aiocometd-noloop exceptions should be tranlated to
     aiosfstream exceptions. (unfortunately we can't make aiosfstream exceptions
-    the virtual base class of aiocometd exceptions, since exception handling
+    the virtual base class of aiocometd-noloop exceptions, since exception handling
     only looks at the __mro__ to find the base class, we have no choice but to
     redefine the same exceptions)
     """
@@ -124,7 +124,7 @@ def translate_errors_context() -> Generator[None, None, None]:
 
 
 def translate_errors(func: Func) -> Func:
-    """Function decorator for translating the raised aiocometd \
+    """Function decorator for translating the raised aiocometd-noloop \
     errors to their aiosfstream counterparts
 
     :param func: Function or coroutine function

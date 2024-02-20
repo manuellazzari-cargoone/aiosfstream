@@ -1,6 +1,6 @@
 from asynctest import TestCase
 
-import aiocometd.exceptions as cometd_exc
+import aiocometd-noloop.exceptions as cometd_exc
 
 import aiosfstream.exceptions as exc
 

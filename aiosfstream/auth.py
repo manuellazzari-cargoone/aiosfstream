@@ -5,8 +5,8 @@ import reprlib
 import json
 from typing import Optional, Tuple
 
-from aiocometd import AuthExtension
-from aiocometd.typing import JsonObject, JsonLoader, JsonDumper, Payload, \
+from aiocometd-noloop import AuthExtension
+from aiocometd-noloop.typing import JsonObject, JsonLoader, JsonDumper, Payload, \
     Headers
 from aiohttp import ClientSession
 from aiohttp.client_exceptions import ClientError
